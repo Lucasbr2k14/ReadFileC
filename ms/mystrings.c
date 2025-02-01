@@ -34,11 +34,24 @@ int MSappend(MyString *str, char a) {
      
 }
 
-int concat(MyString *str, char *strA) {
+int MSconcat(MyString *str, char *strA) {
     int lenMyString = MyStrLen(str->string);
     int lenString = MyStrLen(strA); 
+    int newLen = lenMyString + lenString;
+    int i = lenMyString;
+    int j = 0;
+
+    str->string = realloc(str->string, (newLen + 1) * sizeof(char));
     
+    while (i < (lenMyString + lenString)) {
+        *(str->string + i) = *(strA + j);
+        j++;
+        i++;
+    }
     
+    str->string[newLen+1] = '\0';
+
+    return 0;
 }
 
 int MSfree(MyString *str) {

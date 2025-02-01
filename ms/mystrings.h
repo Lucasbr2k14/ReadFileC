@@ -9,5 +9,6 @@ int MyStrLen(char *str);
 int MSstart(MyString *str);
 int MSappend(MyString *str, char a);
 int MSfree(MyString *str);
+int MSconcat(MyString *str, char *strA);
 
 #endif
